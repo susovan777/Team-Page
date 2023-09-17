@@ -102,16 +102,30 @@ function generateCard(id, fullName, jobTitle, bio, avatar) {
   return member_section; 
 }
 
+/* 💎 for my testing purpose
+// generateCard(team[0].id, team[0].fullName, team[0].jobTitle, team[0].bio, team[0].avatar);
+// generateCard(team[1].id, team[1].fullName, team[1].jobTitle, team[1].bio, team[1].avatar);
+// generateCard(team[2].id, team[2].fullName, team[2].jobTitle, team[2].bio, team[2].avatar);
+*/
+
 
 /**
  * Generates and returns an array of HTML elements
  * @param {Array} data Team data array
 */
 
+/*  In this function you need to do following things: ⚡Got this help from Technical expert (Aditya)
+1- Create an empty array.
+2- Iterate over the teams data, then call the generateCard function by passing proper data.
+3- Push the result of the generateCard to the empty array you declared.
+4- return that array  */
 
 function generateCardArray(data) {
   const cards = [];
   //Add logic to populate `cards` array below
+  for(let i = 0; i < data.length; i++) {
+    cards.push(generateCard(data[i].id, data[i].fullName, data[i].jobTitle, data[i].bio, data[i].avatar));
+  }
    
   //Return cards array
   return cards;
@@ -123,3 +137,5 @@ const cardsArray = generateCardArray(team);
 for (let card of cardsArray) {
   content.append(card);
 }
+
+console.log(content);
