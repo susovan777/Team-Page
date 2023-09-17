@@ -56,38 +56,57 @@ const getImageElement = (src, alt) => {
  */
 function generateCard(id, fullName, jobTitle, bio, avatar) {
   //1. Create a new "section" element and set the className and id
-  
+  let member_section = document.createElement("section");
+  member_section.setAttribute("class", "team-member");
+  member_section.setAttribute("id", id);
 
   //2. Generate the image using getImageElement() function
   //Hint - Use fullname as alt for the image.
+  let img_tag = getImageElement(avatar, fullName);
 
   //3. Create a div for text content
+  let bio_div = document.createElement("div");
 
   //4. Create an h2 for fullName
-  
+  let member_name = document.createElement("h2");
+  member_name.innerHTML = fullName;
 
   //5. Create an h3 for jobTitle
- 
+  let job_title = document.createElement("h3");
+  job_title.innerHTML = jobTitle;
 
   //6. Create a p for bio
- 
+  let member_bio = document.createElement("p");
+  member_bio.innerHTML = bio;
 
   //7. Append the fullName, jobTitle, and bio element to the div created for text.
-  
+  bio_div.appendChild(member_name);
+  bio_div.appendChild(job_title);
+  bio_div.appendChild(member_bio);
 
-  //8. Append the Image and the Text div
-  //   to the new section you created in step 1
-  
+  //8. Append the Image and the Text div to the new section you created in step 1
+  member_section.appendChild(img_tag);
+  member_section.appendChild(bio_div);
 
   //Return the new section element created.
-  return ;
+  /*
+  return as: 
+  <section class="team-member" id="id_text">
+    <img src="" alt=""/>
+    <div>
+      <h2> ... </h2>
+      <h3> ... </h3>
+      <p> ... </p>
+    </div>
+  */
+  return member_section; 
 }
 
 
 /**
  * Generates and returns an array of HTML elements
  * @param {Array} data Team data array
- */
+*/
 
 
 function generateCardArray(data) {
