@@ -37,8 +37,12 @@ const content = document.getElementById("content");
  * @returns An Image HTML Element
  */
 const getImageElement = (src, alt) => {
-
-  return ;
+  let imgEle = document.createElement("img");
+  imgEle.setAttribute("src", src);
+  imgEle.setAttribute("alt", alt);
+  imgEle.setAttribute("height", 100);
+  imgEle.setAttribute("width", 100);
+  return imgEle; // return as <img src="src_text" alt="alt_text" height="100px" width="100px" />
 };
 
 /**
